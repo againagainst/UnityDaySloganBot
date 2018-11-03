@@ -30,7 +30,7 @@ def help(bot, update):
 
 def slogan(bot, update):
     """Echo the user message."""
-    txt = gen.make_slogan()
+    txt = gen.sloganmaker.make_slogan()
     update.message.reply_text(txt)
 
 
@@ -44,7 +44,7 @@ def main():
     config = configparser.ConfigParser()
     config.read('config.ini')
     # Create the EventHandler and pass it your bot's token.
-    updater = Updater(token=config['token'])
+    updater = Updater(token=config['telegram']['token'])
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
